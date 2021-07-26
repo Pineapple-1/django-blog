@@ -1,7 +1,12 @@
+*{
+  height: 100vh;
+	width: 100vw;
+}
 body {
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -91,4 +96,8 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.nounderline {
+  text-decoration: none !important
 }
