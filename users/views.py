@@ -25,11 +25,11 @@ def profile(request):
     if request.method == 'POST':
         u_form = userUpdatefrom(request.POST, instance=request.user)
         p_form = profileUpateform(
-            request.POST, request.Files, instance=request.user.profile)
+            request.POST, request.FILES, instance=request.user.profile)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            
+            messages.success(request, f'Your profile info has been changed')
             return redirect('profile')
     else:
         u_form = userUpdatefrom(instance=request.user)
