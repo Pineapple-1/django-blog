@@ -1,16 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import post
 # Create your views here.
-
-
-def home(request):
-    context = {
-        'posts': post.objects.all(),
-        'pageTitle': 'Posts'
-    }
-    return render(request, 'blog/home.html', context)
-
 
 class PostListView(ListView):
     model = post
@@ -21,6 +12,11 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = post
+
+class PostCreateView(CreateView):
+    model = post
+    fields = ['title','content']
+
 
 
 def about(request):
