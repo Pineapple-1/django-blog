@@ -9,9 +9,18 @@
     <div class="article-metadata">
       <a class="mr-2" href="{%url 'profile'%}">{{ object.author }}</a>
       <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      
+
     </div>
+
     <h2 class="article-title">{{ object.title }}</h2>
     <p class="article-content">{{ object.content }}</p>
+    {% if object.author == user %}
+    <a class= 'btn-primary btn-sm '  style="text-decoration:none" href="{% url 'Post-Update' object.id %}">Update</a>
+    <a class= 'btn-danger btn-sm '  style="text-decoration:none" href="{% url 'Post-Delete' object.id %}">Delete</a>
+    {%endif%}
+    
   </div>
+
 </article>
 {% endblock content %}
